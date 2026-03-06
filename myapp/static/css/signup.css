@@ -1,0 +1,16 @@
+body{
+  height:100vh;
+  background: url("/static/images/bg5.jpg");
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.signup-box{
+  width: 330px;
+  background:#0a0a0a;
+  padding:20px;
+  border-radius:10px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}

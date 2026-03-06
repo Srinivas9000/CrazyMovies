@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-end;  
+    align-items: center;         
+    padding-right: 60px;         
+
+    background-image: url("../images/interface.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    font-family: Arial, sans-serif;
+}
+.about {
+    text-align: center;
+    background: rgb(206, 195, 207);
+    padding: 30px;
+    width: 420px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+
+.about a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.about a:hover {
+    color: #ff3d00;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 22px;
+    border: none;
+    background-color: #3a0fa0;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}

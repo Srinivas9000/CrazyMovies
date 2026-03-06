@@ -1,0 +1,146 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f6f6;
+  margin: 0;
+}
+
+.header {
+  background: rgb(250, 249, 249);
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+.date-bar {
+  display: flex;
+  gap: 12px;
+  margin: 15px 0;
+  overflow-x: auto;
+}
+
+.date-box {
+  text-decoration: none;
+  color: black;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px 10px;
+  text-align: center;
+  width: 60px;
+  background: white;
+  transition: 0.3s ease;
+}
+
+.date-box:hover {
+  transform: scale(1.05);
+  background: #f3f3f3;
+}
+
+.date-box.active {
+  background: #f84464;
+  color: white;
+  border-color: #f84464;
+  transform: scale(1.08);
+}
+
+.day {
+  font-size: 12px;
+}
+
+.num {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.month {
+  font-size: 12px;
+}
+
+
+.lang {
+  padding: 10px;
+  background: white;
+}
+
+.change {
+  color: red;
+  float: right;
+}
+
+.filters {
+  padding: 10px;
+  background: white;
+}
+
+.filters button {
+  margin: 5px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+.theatre-card {
+  background: rgb(249, 247, 247);
+  margin: 10px;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.nc {
+  color: rgb(53, 53, 53);
+  font-size: 13px;
+}
+
+.time-btn {
+  display: inline-block;
+  border: 2px solid green;
+  color: green;
+  padding: 8px 14px;
+  margin: 6px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.time-btn:hover {
+  background: green;
+  color: white;
+}
+
+
+.shows button:hover {
+  background: green;
+  color: white;
+}
+
+
+
+.shows button {
+  padding: 10px 15px;
+  margin: 8px;
+  border: 1px solid green;
+  background: rgb(59, 59, 59);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.shows button:hover {
+  background: green;
+  color: white;
+}
+.show-btn {
+  display: inline-block;
+  border: 2px solid green;
+  color: green;
+  padding: 8px 14px;
+  margin: 6px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  background: white;
+  transition: 0.3s;
+}
+
+.show-btn:hover {
+  background: green;
+  color: white;
+}

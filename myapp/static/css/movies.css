@@ -1,0 +1,251 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color:rgb(50, 50, 48)
+}
+
+header {
+  background-color:rgb(90, 89, 89);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  position:relative;
+  z-index: 1;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+
+.movie-card {
+  background: white;
+  border-radius: 8px;
+  margin: 15px;
+  width: 220px;
+  box-shadow: 0 2px 8px rgb(252, 251, 251);
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+
+.movie-card img {
+    width: 100%;
+    height: 320px;          /* same height for all posters */
+    object-fit: contain;   /* no crop */
+    background-color: #cb0f0f;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.movie-card img:hover {
+  transform:scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  cursor:crosshair;
+}
+
+.movie-card h2 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.movie-card button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.movie-card button:hover {
+  background-color: #c40811;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #333;
+  color: white;
+  margin-top: 20px;
+}
+
+.search-location-box{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.search-location-box input{
+  padding:8px 12px;
+  border-radius:6px;
+  border:none;
+  outline:none;
+  width:160px;
+}
+
+.search-location-box button{
+  background:#ff9800;
+  color:black;
+  border:none;
+  padding:8px 12px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.search-location-box button:hover{
+  background:#ffa726;
+}
+
+#locationInput{
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  pointer-events: auto !important;
+  opacity: 1 !important;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.search-location-box{
+  z-index: 9999;
+  position: relative;
+}
+
+input{
+  pointer-events: auto;
+}
+
+
+/* FORCE ENABLE LOCATION INPUT */
+#locationInput{
+  pointer-events: auto !important;
+  z-index: 99999 !important;
+  position: relative !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+.search-location-box{
+  pointer-events: auto !important;
+  z-index: 99999 !important;
+  position: relative !important;
+}
+
+header, nav{
+  pointer-events: auto !important;
+}
+
+#locationInput{
+  width: 220px !important;
+  min-width: 220px !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  pointer-events: auto !important;
+}
+
+#locationInput:focus{
+  outline: 2px solid #ff9800;
+}
+
+
+/* FIX LOCATION INPUT TYPING ISSUE */
+#locationInput{
+  width: 260px !important;
+  min-width: 260px !important;
+  max-width: 260px !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  pointer-events: auto !important;
+  z-index: 99999 !important;
+  position: relative !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* remove any clipping */
+.search-location-box{
+  overflow: visible !important;
+}
+
+.search-location-box{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+#locationInput{
+  width: 250px;
+}
+
+
+/* FIX HEADER BLOCKING INPUTS */
+header{
+  position: relative;
+  z-index: 1;
+}
+
+.search-location-box{
+  position: relative;
+  z-index: 10;
+  background: transparent;
+}
+
+#searchInput,
+#locationInput{
+  position: relative;
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.search-location-box{
+  margin: 15px auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+#searchInput,
+#locationInput{
+  width: 240px;
+}
+
+/* TOTAL RESET FOR SEARCH + LOCATION INPUTS */
+#searchInput,
+#locationInput{
+  box-sizing: border-box;
+  width: 300px;
+  min-width: 300px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: white;
+  color: black;
+  font-size: 14px;
+  pointer-events: auto;
+  z-index: 9999;
+  overflow: visible;
+  white-space: normal;
+}
+
+
+/* FORCE SAME SIZE POSTERS */
+.movie-card img{
+    width:100% !important;
+    height:320px !important;
+    object-fit:contain !important;
+    background:black !important;
+}

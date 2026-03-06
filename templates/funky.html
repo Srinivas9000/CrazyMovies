@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{{ movie.title }} - Showtimes</title>
+<link rel="stylesheet" href="{% static 'css/shows.css' %}">
+</head>
+<body>
+
+<h2 id="movieTitle">{{ movie.title }}</h2>
+<p id="movieDuration">Movie runtime: {{ movie_runtime }}</p>
+
+<p id="movieLang">{{ movie.language }} • 2D</p>
+<div class="date-bar">
+    {% for d in dates %}
+        <a href="?date={{ d|date:'Y-m-d' }}"
+   class="date-box {% if d == selected_date %}active{% endif %}">
+
+
+            <div class="day">{{ d|date:"D" }}</div>
+            <div class="num">{{ d|date:"d" }}</div>
+            <div class="month">{{ d|date:"M" }}</div>
+        </a>
+    {% endfor %}
+</div>
+
+
+
+<h3 class="section-title">Select a Theatre & Showtime</h3>
+
+{% if shows %}
+    
+    {% for theatre, theatre_shows in shows.items %}
+
+    <div class="theatre-card">
+
+        <!-- Theatre Name -->
+        <h4 class="theatre-name">🎬 {{ theatre }}</h4>
+        <p class="nc">Non-cancellable</p>
+
+        <div class="times">
+
+            {% if theatre_shows %}
+                <!-- DB show timings -->
+                {% for show in theatre_shows %}
+                    <a href="{% url 'seat_selection' show.id %}" class="time-btn">
+                      {{ show.time|date:"h:i A" }}
+                    </a>
+                {% endfor %}
+            {% else %}
+                <!-- Default timings -->
+                <a href="{% url 'sampleseat' %}" class="time-btn">11:00 AM</a>
+                <a href="{% url 'sampleseat'  %}" class="time-btn">02:30 PM</a>
+                <a href="{% url 'sampleseat'  %}" class="time-btn">06:00 PM</a>
+                <a href="{% url 'sampleseat'  %}" class="time-btn">09:30 PM</a>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+{% else %}
+    <p style="margin-left:30px;">No theatres available.</p>
+{% endif %}
+
+<script>
+function goSeats(showId){
+    // Redirect to Django seat selection page
+    window.location.href = `{% url 'seat_selection' show_id=0 %}`.replace('0', showId);
+}
+</script>
+<script src="{% static 'js/shows.js' %}"></script>
+</body>
+</html>

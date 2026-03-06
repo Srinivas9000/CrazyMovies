@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets Booking</title>
+      <link rel="stylesheet" href="{% static 'css/interface.css' %}">
+
+</head>
+<body>
+  
+    <div class="container">
+
+    <div class="about">
+        
+            <a href="{% url 'home' %}">Home</a>&nbsp
+            <a href="{% url 'aboutus' %}">about</a>&nbsp
+            
+            <a href="{% url 'contact' %}">Contact</a>
+     <h1>Show Time</h1>
+      <p>
+        Welcome to our Show Time!  
+        Easily search movies, select theaters, choose seats, and book tickets online.
+        Fast, secure, and simple booking experience.
+      </p>
+      <a href="{% url 'learnmore' %}">
+      <button class="btn">Learn More</button>
+      </a>
+      
+    </div>
+
+    
+      
+    </div>
+
+  
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+    <style>
+        *{
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    background:linear-gradient(120deg,#c33764);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.container{
+    background:white;
+    width:350px;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+}
+.modes{
+    display:flex;
+    justify-content:space-around;
+    margin:15px 0;
+}
+input{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+}
+
+.row{
+    display:flex;
+    gap:10px;
+}
+button{
+    width:100%;
+    background:#1d2671;
+    color:white;
+    border:none;
+    padding:12px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#c33764;
+}
+.success{
+    color:green;
+    margin-top:15px;
+    display:none;
+}
+/* Space between UPI input and QR code */
+#upiId{
+    display:block;
+    margin-bottom:30px;
+}
+
+/* QR container spacing */
+.qr-section{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;   /* 👈 real gap */
+}
+
+.qr-section img{
+    width:120px;
+}
+        .box{background:#222;width:300px;margin:auto;margin-top:80px;padding:20px;border-radius:10px}
+        
+    </style>
+
+</head>
+<body>
+<div class="container">
+
+    <h2>Payment Details</h2>
+
+<div class="summary">
+        <p>Tickets: <span id="ticketCount">0</span></p>
+        <p>Total Amount: ₹ <span id="totalAmount">0</span></p>
+    </div>
+     <!-- Payment Mode -->
+    <div class="modes">
+        <label>
+            <input type="radio" name="mode" value="card" checked>
+            Card Payment
+        </label>
+
+        <label>
+            <input type="radio" name="mode" value="upi">
+            UPI Payment
+        </label>
+    </div>
+
+    <!-- Card Form -->
+    <form id="cardForm">
+
+        <input type="text" placeholder="Card Holder Name" required>
+        <input type="text" placeholder="Card Number" maxlength="16" required>
+
+        <div class="row">
+            <input type="text" placeholder="MM/YY" required>
+            <input type="password" placeholder="CVV" maxlength="3" required>
+        </div>
+
+        <button type="button" id="payCardBtn">Pay Now</button>
+
+    </form>
+
+    <!-- UPI Form -->
+    <form id="upiForm" style="display:none;">
+
+        <input type="text" id="upiId" placeholder="Enter UPI ID (example@upi)" required>
+
+        <div class="qr-section">
+
+        
+             <button type="submit">Pay via UPI</button>
+    </form>
+
+    <p class="success" id="successMsg">Payment Successful 🎉</p>
+
+    <form action="/confirmation/">
+
+    </form>
+</div>
+ <script>
+  const seats = JSON.parse(localStorage.getItem("selectedSeats"));
+
+  if (!seats || seats.length === 0) {
+    alert("Please select seats first");
+    window.location.href = "movies.html";
+  }
+  function completePayment(){
+
+    const seats = JSON.parse(localStorage.getItem("selectedSeats"));
+    const ticketCount = localStorage.getItem("ticketCount");
+    const totalAmount = localStorage.getItem("totalAmount");
+
+    if(!seats){
+        alert("No booking found");
+        return;
+    }
+
+    alert("Payment Successful 🎉");
+
+    // clear seats after payment
+    localStorage.removeItem("selectedSeats");
+    localStorage.removeItem("ticketCount");
+    localStorage.removeItem("totalAmount");
+
+    // redirect to confirmation page
+    window.location.href = "{% url 'confirmation' %}";
+}
+</script>
+
+
+
+
+
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const seats = JSON.parse(localStorage.getItem("selectedSeats"));
+    const ticketCount = localStorage.getItem("ticketCount");
+    const totalAmount = localStorage.getItem("totalAmount");
+
+    // Direct access protection
+    if (!seats || seats.length === 0) {
+      alert("Please select seats first");
+      window.location.href = "seats.html";
+      return;
+    }
+
+    document.getElementById("ticketCount").innerText = ticketCount;
+    document.getElementById("totalAmount").innerText = totalAmount;
+
+  });
+</script>
+
+<script>
+  // Disable browser back
+  history.pushState(null, null, location.href);
+  window.onpopstate = function () {
+    history.go(1);
+  };
+</script>
+<script src="{% static 'js/payment.js' %}"></script>
+</body>
+</html> 

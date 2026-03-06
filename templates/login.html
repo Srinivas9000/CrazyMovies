@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body{background:url("/static/images/bg3.jpg");color:white;font-family:Arial;text-align:center}
+        .box{background:#222;width:300px;margin:auto;margin-top:100px;padding:20px;border-radius:10px}
+        input,button{width:90%;padding:10px;margin:10px 0;border-radius:5px;border:none}
+        button{background:green;color:white;font-size:16px}
+    </style>
+</head>
+<body> 
+
+<div class="box">
+    <h2>Login</h2>
+
+    {% if error %}
+      <p style="color:red">{{ error }}</p>
+    {% endif %}
+
+    <form method="post" action="/login/">
+        {% csrf_token %}
+
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p>Don't have account? 
+       <a href="/signup/" style="color:#0f0;">Signup</a>
+    </p>
+</div>
+
+</body>
+
+</html>

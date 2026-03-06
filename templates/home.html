@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Ticket Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color:rgb(50, 50, 48)
+        }
+        header {
+            background-color:rgb(90, 89, 89);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position:relative;
+            z-index: 1;
+        }
+        h1{
+            background-color:rgb(90, 89, 89);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position:relative;
+            z-index: 1;}
+        .container{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:20px;
+            padding:20px;
+        }
+        .movie-card{
+            width:200px;
+            background:#222;
+            padding:10px;
+            border-radius:10px;
+            transition:0.3s;
+            text-align:center;
+        }
+        .movie-card:hover{
+            transform:scale(1.05);
+            background:#333;
+        }
+        img{
+            width:100%;
+            height:260px;
+            object-fit:cover;
+            border-radius:10px;
+        }
+        a{text-decoration:none;color:white}
+        .book-btn{
+            margin-top:20px;
+            padding:12px 25px;
+            background:#e50914;
+            color:white;
+            border:none;
+            border-radius:6px;
+            font-size:16px;
+            cursor:pointer;
+        }
+        .book-btn:hover{
+            background:#b40710;
+        }
+        .search-location-box{
+            display:flex;
+            gap:10px;
+            align-items:center;
+        }
+        .search-location-box input{
+  padding:8px 12px;
+  border-radius:6px;
+  border:none;
+  outline:none;
+  width:160px;
+}
+
+.search-location-box button{
+  background:#ff9800;
+  color:black;
+  border:none;
+  padding:8px 12px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.search-location-box button:hover{
+  background:#ffa726;
+}
+
+    </style>
+</head>
+<body>
+
+<h1>Now Showing 🎬</h1>
+
+
+      <div class="search-location-box">
+
+  <input type="text" id="searchInput" placeholder="Search movies...">
+
+  <input type="text" id="locationInput" placeholder="Enter location">
+
+  <button onclick="getLocation()">Use My Location</button>
+</div>
+  
+
+<div class="container">
+    {% for movie in movies %}
+        <a href="/movie/{{ movie.id }}/">
+            <div class="movie-card">
+                <img src="{{ movie.poster.url }}">
+                <h3>{{ movie.title }}</h3>
+                <p>{{ movie.language }}</p>
+                <p>{{ movie.duration }} mins</p>
+                 <a href="/movie/{{ movie.id }}/">
+            <button class="book-btn">Book Tickets</button>
+        </a>
+            </div>
+        </a>
+    {% empty %}
+        <h2>No Movies Found</h2>
+    {% endfor %}
+</div>
+<script src="{% static 'js/movies.js' %}"></script>
+</body>
+</html>

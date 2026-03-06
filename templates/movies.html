@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show Time</title>
+
+  <link rel="stylesheet" href="{% static 'css/movies.css' %}">
+</head>
+
+<body>
+
+<header>
+  <h1>Show Time</h1>
+  <nav>
+    <a href="#">Home</a>
+  </nav>
+</header>
+
+<!-- Search -->
+<div class="search-location-box">
+  <input type="text" id="searchInput" placeholder="Search movies...">
+  <input type="text" id="locationInput" placeholder="Enter location">
+  <button onclick="getLocation()">Use My Location</button>
+</div>
+
+<main>
+<section class="movie-list">
+
+<!-- Movie Card -->
+<div class="movie-card">
+  <a href="{% url 'sampleseat' %}">
+    <img src="{% static 'images/they-call-him-og-et00369074-1758290791.jpg' %}" alt="OG">
+  </a>
+  <h3>OG</h3>
+  <p>Genre: Action, Adventure, Thriller</p>
+  <p>Telugu, Hindi</p>
+</div>
+
+<div class="movie-card">
+  <a href="{% url 'sampleseat' %}">
+    <img src="{% static 'images/kingdom-et00433664-1753697049.jpg' %}" alt="Kingdom">
+  </a>
+  <h3>Kingdom</h3>
+  <p>Genre: Action, Drama, Revenge</p>
+  <p>Telugu, Hindi</p>
+</div>
+
+<div class="movie-card">
+  <a href="{% url 'sampleseat' %}">
+    <img src="{% static 'images/mana-shankara-vara-prasad-garu-et00457184-1768291623.jpg' %}" alt="Mana Shankara">
+  </a>
+  <h3>Mana Shankara Vara Prasad</h3>
+  <p>Genre: Action, Family</p>
+  <p>Telugu</p>
+</div>
+
+<div class="movie-card">
+  <a href="{% url 'sampleseat' %}">
+    <img src="{% static 'images/with-love-et00484567-1770031410_converted.jpg' %}" alt="With Love">
+  </a>
+  <h3>With Love</h3>
+  <p>Genre: Comedy, Drama, Romance</p>
+  <p>Telugu, Tamil</p>
+</div>
+
+<div class="movie-card">
+  <a href="{% url 'sampleseat' %}">
+    <img src="{% static 'images/euphoria-et00449831-1766560095_converted.jpg' %}" alt="Euphoria">
+  </a>
+  <h3>Euphoria</h3>
+  <p>Genre: Crime, Thriller, Action</p>
+</div>
+
+<!-- Add remaining movies same way -->
+
+</section>
+</main>
+
+<footer>
+  <p>&copy; 2026 Show Time. All rights reserved.</p>
+</footer>
+
+<script src="{% static 'js/movies.js' %}"></script>
+
+</body>
+</html>

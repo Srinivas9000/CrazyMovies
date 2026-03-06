@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Movie Ticket Booking</title>
+    <link rel="stylesheet" href="{% static 'css/learnmore.css' %}"/>
+      
+</head>
+
+<body>
+
+  <header>
+    <h1>Learn More</h1>
+    
+  </header>
+
+  <div class="container">
+    <h2>📌 About Our System</h2>
+    <p>
+      Our Movie Ticket Booking System helps users to easily search movies,
+      view details, choose seats, and book tickets online in just a few steps.
+      It saves time and provides a smooth booking experience.
+    </p>
+
+    <h2>✨ Features</h2>
+    <ul>
+      <li>🎬 View available movies with posters and details</li>
+      <li>📍 Search movies by location and theater</li>
+      <li>🕒 Select show timings</li>
+      <li>💺 Choose seats easily</li>
+      <li>💳 Online payment option</li>
+      <li>📩 Booking confirmation message</li>
+    </ul>
+
+    <h2>🛠 How It Works</h2>
+    <p>
+      1. User selects a movie <br>
+      2. Choose theater and show time <br>
+      3. Select seats <br>
+      4. Enter details and pay <br>
+      5. Ticket is booked successfully 🎉
+    </p>
+
+    <a href="{% url 'interface' %}" class="btn">⬅ Back to Home</a>
+  </div>
+
+
+
+</body>
+</html>

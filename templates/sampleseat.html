@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seat Selection</title>
+
+<link rel="stylesheet" href="{% static 'css/sampleseat.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Select Your Seats</h2>
+
+<!-- Legend -->
+<div class="legend">
+  <div><span class="seat"></span> Available</div>
+  <div><span class="seat booked"></span> Booked</div>
+  <div><span class="seat selected"></span> Selected</div>
+</div>
+
+<!-- Seats Grid -->
+<div class="seats" id="seats"></div>
+
+<!-- Footer -->
+<div class="footer">
+  <div>
+    <p><span id="count">0</span> Tickets</p>
+    <p>₹ <span id="total">0</span></p>
+    <p id="seatNames"></p>
+  </div>
+
+  <button class="book" onclick="goToPayment()">Proceed</button>
+</div>
+
+</div>
+
+<script src="{% static 'js/sampleseat.js' %}"></script>
+
+</body>
+</html>

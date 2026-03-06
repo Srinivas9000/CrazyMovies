@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Movie Booking</title>
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+</head>
+<body>
+
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <p>Have questions or need help? Get in touch with us!</p>
+
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <input type="text" placeholder="Subject" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+
+        <div class="contact-info">
+            <p><strong>Email:</strong> support@moviebooking.com</p>
+            <p><strong>Phone:</strong> +91 9989533831</p>
+            <p><strong>Address:</strong> Hyderabad, Telangana, India</p>
+        </div>
+    </div>
+
+</body>
+</html>

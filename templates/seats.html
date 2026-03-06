@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Seats</title>
+    <style>
+        body{background:#111;color:white;font-family:Arial}
+        h2{text-align:center}
+        .container{display:grid;grid-template-columns:repeat(5,60px);gap:15px;justify-content:center;margin-top:40px}
+        .seat{
+            width:60px;height:60px;border-radius:8px;
+            display:flex;align-items:center;justify-content:center;
+            cursor:pointer;font-weight:bold;
+        }
+        .free{background:green}
+        .booked{background:red;cursor:not-allowed}
+        .selected{background:orange}
+        button{
+            padding:12px 30px;border:none;background:#e50914;color:white;
+            font-size:16px;border-radius:8px;cursor:pointer;
+            display:block;margin:30px auto;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Select Your Seats 🪑</h2>
+
+<div class="container">
+    {% for seat in seats %}
+        <div class="seat {% if seat.is_booked %}booked{% else %}free{% endif %}"
+             onclick="toggleSeat(this, '{{ seat.id }}')">
+            {{ seat.seat_number }}
+        </div>
+    {% endfor %}
+</div>
+
+<form method="post" action="/book/">
+    {% csrf_token %}
+    <input type="hidden" id="selectedSeats" name="seats">
+    <input type="hidden" name="show_id" value="{{ show_id }}">
+    <button type="submit">Book Seats</button>
+</form>
+
+<script>
+let selected = [];
+
+function toggleSeat(el, id){
+    if(el.classList.contains('booked')) return;
+
+    if(el.classList.contains('selected')){
+        el.classList.remove('selected');
+        selected = selected.filter(x => x != id);
+    }else{
+        el.classList.add('selected');
+        selected.push(id);
+    }
+    document.getElementById("selectedSeats").value = selected.join(",");
+}
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+    const showId = localStorage.getItem("selectedShowId");
+    const showTime = localStorage.getItem("selectedShowTime");
+    const theatre = localStorage.getItem("selectedTheatre");
+
+    console.log("Selected Show ID:", showId);
+    console.log("Time:", showTime);
+    console.log("Theatre:", theatre);
+
+    // optional: you can use showTime and theatre to update the page
+});
+</script>
+
+
+</body>
+</html>

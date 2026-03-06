@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Show Time</title>
+  <link rel="stylesheet" href="{% static 'css/movielogin.css' %}">
+</head>
+<body>
+    
+  <div class="login-container">
+    <h2> Show Time</h2>
+    <form method="POST" action="{% url 'interface' %}">
+    {% csrf_token %}
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required>
+
+      <button type="submit">Login</button>
+      <p class="signup-link">Don't have an account? <a href="{% url 'signup' %}">Sign up</a>
+    </form>
+  </div>
+</body>
+</html>
