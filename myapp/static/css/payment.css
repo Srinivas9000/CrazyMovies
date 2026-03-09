@@ -1,10 +1,15 @@
+
 *{
     box-sizing:border-box;
     font-family:Arial;
 }
 
 body{
-    background:linear-gradient(120deg,#c33764);
+    background:
+    url("{% static 'images/payment.jpg' %}");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
     min-height:100vh;
     display:flex;
     justify-content:center;
@@ -12,11 +17,12 @@ body{
 }
 
 .container{
-    background:white;
+    background:rgba(255,255,255,0.95);
     width:350px;
     padding:25px;
     border-radius:10px;
     text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
 .modes{
@@ -43,6 +49,7 @@ button{
     border:none;
     padding:12px;
     cursor:pointer;
+    border-radius:5px;
 }
 
 button:hover{
@@ -55,7 +62,6 @@ button:hover{
     display:none;
 }
 
-
 /* Space between UPI input and QR code */
 #upiId{
     display:block;
@@ -67,7 +73,7 @@ button:hover{
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:20px;   /* 👈 real gap */
+    gap:20px;
 }
 
 .qr-section img{

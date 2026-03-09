@@ -5,8 +5,112 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Seat Selection</title>
+<style>
+body{
+    background:linear-gradient(rgba(246, 243, 243, 0.6), rgba(246, 246, 246, 0.011)),
+    url("{% static 'images/sampleseat.jpg' %}");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 
-<link rel="stylesheet" href="{% static 'css/sampleseat.css' %}">
+.container{
+    background:rgba(255,255,255,0.95);
+    width:350px;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.legend{
+  display:flex;
+  justify-content:space-around;
+  margin:10px 0;
+  font-size:14px;
+}
+
+.seat{
+  width:15px;
+  height:15px;
+  background:#ddd;
+  display:inline-block;
+  border-radius:3px;
+}
+
+.seat.booked{ background:#999; }
+.seat.selected{ background:#1abc9c; }
+
+.seats{
+  display:grid;
+  grid-template-columns:repeat(10,1fr);
+  gap:6px;
+  margin:15px 0;
+}
+
+.seats div{
+  width:22px;
+  height:22px;
+  background:#ddd;
+  border-radius:4px;
+  cursor:pointer;
+}
+
+.seats div.selected{ background:#1abc9c; }
+.seats div.booked{
+  background:#999;
+  cursor:not-allowed;
+}
+
+.dates,.times{
+  display:flex;
+  justify-content:space-between;
+  margin:10px 0;
+}
+
+.dates button,
+.times button{
+  border:none;
+  padding:6px 8px;
+  border-radius:6px;
+  background:#eee;
+  cursor:pointer;
+}
+
+.active{
+  background:#1abc9c;
+  color:white;
+}
+
+.footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:15px;
+}
+
+.book{
+  background:#222;
+  color:white;
+  border:none;
+  padding:8px 18px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.seats div{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:10px;
+  color:#333;
+}
+
+</style>
 </head>
 
 <body>

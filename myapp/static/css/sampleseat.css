@@ -1,19 +1,22 @@
 body{
-  margin:0;
-  font-family:Arial;
-  background:linear-gradient(90deg,#f32505,#f33d05);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
+    background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("{% static 'images/sampleseat.jpg' %}");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .container{
-  background:#fff;
-  width:350px; 
-  padding:20px;
-  border-radius:12px;
-  text-align:center;
+    background:rgba(255,255,255,0.95);
+    width:350px;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
 .legend{
