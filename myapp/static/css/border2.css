@@ -8,271 +8,122 @@ body {
 /* Main Container */
 .movie-container {
   display: flex;
-  flex-wrap: wrap;
   padding: 40px;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: auto;
   background: #2c2c2c;
   border-radius: 10px;
-  gap: 20px;
+  gap: 40px;
+}
+
+/* LEFT SIDE */
+.left-section{
+  width:300px;
 }
 
 /* Poster */
 .poster img {
   width: 220px;
   border-radius: 10px;
-  margin-top: 20px;
-}
-
-.release-date {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #ccc;
-}
-
-/* Movie Details */
-.movie-details {
-  flex: 1;
-  min-width: 250px;
-  font-size: small;
-}
-
-.movie-details h1 {
-  font-size: 26px;
-  margin-bottom: 20px;
-}
-
-/* Interested Box */
-.interest-box {
-  background-color: #2c2c2c;
-  padding: 15px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.like {
-  font-size: 20px;
-}
-
-.interested-btn {
-  margin-left: auto;
-  background: transparent;
-  color: #fff;
-  border: 1px solid #666;
-  padding: 6px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.interested-btn:hover {
-  background-color: purple;
-  transition: transform 0.4s, box-shadow 0.2s;
-}
-
-/* Selectors */
-.selectors {
-  margin: 20px 0;
-}
-
-.selectors select {
-  padding: 10px;
-  margin-right: 10px;
-  background-color: #222;
-  color: white;
-  border: none;
-  border-radius: 6px;
-}
-
-/* Genre */
-.genre {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-/* Book Button */
-.book-btn {
-  padding: 14px 30px;
-  background-color: #e50914;
-  border: none;
-  color: white;
-  font-size: 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.book-btn:hover {
-  background-color: #c40811;
 }
 
 /* Trailer Section */
-.trailer-section {
-  margin-top: 20px;
+.trailer-section{
+  margin-top:20px;
 }
 
-.trailer-section h3 {
-  font-size: 16px;
-  margin-bottom: 10px;
-  color: #fe0404;
+.watch-btn{
+  background:red;
+  color:white;
+  padding:10px 18px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  margin-top:10px;
 }
 
-.watch-btn {
-  background: red;
-  color: white;
-  padding: 10px 18px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+/* AVAILABLE SHOWS (NOW BELOW TRAILER) */
+
+.shows-section{
+  margin-top:25px;
 }
 
-.watch-btn:hover {
-  background: darkred;
+.shows-section h3{
+  margin-bottom:10px;
 }
 
-/* Cast Section */
-.cast-section {
-  margin-top: 30px;
+.book-btn{
+  background:red;
+  border:none;
+  padding:10px 20px;
+  border-radius:6px;
+  color:white;
+  cursor:pointer;
 }
 
-.cast-section h3 {
-  color: #fff;
-  margin-bottom: 20px;
+/* RIGHT SIDE */
+.movie-details{
+  flex:1;
 }
 
-/* Cast Grid */
-.cast-grid {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
+.movie-details h1{
+  color:red;
+  margin-bottom:20px;
 }
 
-.cast-card {
-  width: 90px;
-  text-align: center;
-  color: white;
-  font-size: 14px;
-  transition: transform 0.4s, box-shadow 0.2s;
-  cursor: pointer;
+/* CAST SECTION */
+.cast-section{
+  margin-top:30px;
 }
 
-.cast-card img {
-  width: 90px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 8px;
+.cast-section h3{
+  margin-bottom:15px;
 }
 
-.cast-card:hover {
-  transform: scale(1.2);
+/* ROW MODEL */
+.cast-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:25px;
 }
 
-/* Actor Popup */
-.actor-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
+.cast-card{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  width:300px;
 }
 
-.popup-content {
-  background: #111;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  width: 300px;
-  color: white;
-  animation: zoomIn 0.3s ease;
+/* ROUND IMAGE */
+.cast-card img{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  object-fit:cover;
 }
 
-.popup-content img {
-  width: 150px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 8px;
+/* Actor Text */
+.cast-info h4{
+  margin:0;
+  font-size:15px;
 }
 
-.close-btn {
-  position: absolute;
-  right: 20px;
-  top: 10px;
-  font-size: 28px;
-  cursor: pointer;
+.cast-info p{
+  margin:0;
+  font-size:13px;
+  color:#ccc;
 }
 
-@keyframes zoomIn {
-  from {
-    transform: scale(0.6);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+/* Responsive */
+@media(max-width:768px){
+
+.movie-container{
+  flex-direction:column;
+  align-items:center;
 }
 
-/* Tablet */
-@media (max-width: 768px) {
-
-.movie-container {
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.poster img {
-  width: 180px;
-}
-
-.movie-details {
-  text-align: center;
-}
-
-.cast-grid {
-  justify-content: center;
-}
-
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-
-.movie-container {
-  padding: 15px;
-}
-
-.poster img {
-  width: 150px;
-}
-
-.movie-details h1 {
-  font-size: 20px;
-}
-
-.book-btn {
-  width: 100%;
-}
-
-.watch-btn {
-  width: 100%;
-  margin-top: 10px;
-}
-
-.cast-card {
-  width: 70px;
-}
-
-.cast-card img {
-  width: 70px;
-  height: 80px;
+.cast-grid{
+  justify-content:center;
 }
 
 }

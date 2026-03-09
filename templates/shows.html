@@ -1,50 +1,62 @@
-{% load static %}
+{% load static %} 
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ movie.title }}</title>
-    <style>
-        body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #121212;
-  color: #fff;
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{ movie.title }}</title>
+
+<style>
+
+body{
+  margin:0;
+  font-family:Arial;
+  background:#121212;
+  color:white;
 }
+
+/* MAIN CONTAINER */
+
+.container{
+  display:flex;
+  max-width:1000px;
+  margin:auto;
+  padding:40px;
+  background:#2c2c2c;
+  border-radius:10px;
+}
+
+/* LEFT SIDE */
+
 .left{
-  width:50%;
+  width:40%;
 }
+
+/* RIGHT SIDE */
 
 .right{
-  width:50%;
+  width:60%;
   padding-left:40px;
 }
-        .container{
-            display: flex;
-  padding: 40px;
-  max-width: 1000px;
-  margin: auto;
-  background: #2c2c2c;
-  border-radius: 10px;
-        }
-        .poster img{
-            width: 200px;
-  border-radius: 10px;
-  margin-right: 10px;
-  margin-top: 40px;
-        }
-        .trailer-section {
-  margin-top: 0px;
-  margin-left: 20px;
+
+/* POSTER */
+
+.poster img{
+  width:220px;
+  border-radius:10px;
 }
 
-.trailer-section h3 {
-  display: flex;
-  font-size: 16px;
-  margin-bottom: 10px;
-  margin-left: 20px;
-  color: #fe0404;
+/* TRAILER */
+
+.trailer-section{
+  margin-top:20px;
 }
+
+.trailer-section h3{
+  color:#fe0404;
+}
+
+/* WATCH BUTTON */
+
 .watch-btn{
   background:red;
   color:white;
@@ -52,199 +64,197 @@
   border:none;
   border-radius:6px;
   cursor:pointer;
-  margin-left: 20px;
+  margin-top:10px;
 }
 
 .watch-btn:hover{
   background:darkred;
 }
 
-.trailer-section select {
-  margin-left: 25px;   /* 15px / 20px / 30px try cheyyi */
-}
-.cast-grid {
-  display: flex;
-  flex-wrap: wrap;     /* wrap to next line if container is full */
-  gap: 20px;           /* spacing between cards */
-  justify-content: flex-start; /* align left, or center */
+/* AVAILABLE SHOWS */
+
+.shows{
+  margin-top:25px;
 }
 
-.cast-card {
-  width: 120px;       /* fixed width */
-  text-align: center;
-  color: white;
-  font-size: 14px;
+.book-btn{
+  padding:12px 25px;
+  background:#e50914;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
 }
 
-.cast-card img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 8px;
-  cursor: pointer;
-  transition: transform 0.2s;
+.book-btn:hover{
+  background:#b40710;
 }
 
-.cast-card img:hover {
-  transform: scale(1.1);   /* small zoom on hover */
+/* DETAILS */
+
+.details h1{
+  color:#e50914;
 }
 
-.cast-card p {
-  margin: 0;
-  font-weight: bold;
+/* CAST */
+
+.cast-section{
+  margin-top:30px;
 }
 
-.cast-card small {
-  color: #aaa;
+.cast-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
 }
 
-        .details h1{
-            color:#e50914;
-        }
-        .cast{
-            margin:10px 0;
-            color:#ccc;
-        }
-        .desc{
-            margin:15px 0;
-            line-height:1.6;
-        }
-        iframe{
-            margin-top:20px;
-            border-radius:10px;
-        }
-        .book-btn{
-            margin-top:20px;
-            padding:12px 25px;
-            background:#e50914;
-            color:white;
-            border:none;
-            border-radius:6px;
-            font-size:16px;
-            cursor:pointer;
-        }
-        .book-btn:hover{
-            background:#b40710;
-        }
-        /* Tablet */
-@media (max-width:768px){
+/* CAST ROW MODEL */
+
+.cast-card{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  width:260px;
+}
+
+/* ROUND IMAGE */
+
+.cast-card img{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+/* ACTOR TEXT */
+
+.cast-info p{
+  margin:0;
+  font-weight:bold;
+}
+
+.cast-info small{
+  color:#aaa;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
 .container{
-   width:95%;
+  flex-direction:column;
 }
 
-.seats{
-   grid-template-columns:repeat(8,1fr);
-}
-}
-
-/* Mobile */
-@media (max-width:480px){
-.seats{
-   grid-template-columns:repeat(6,1fr);
+.left,.right{
+  width:100%;
+  padding:0;
 }
 
-button{
-   padding:10px;
-   font-size:14px;
 }
-}
-    </style>
+
+</style>
+
 </head>
+
 <body>
 
 <div class="container">
-    <div class="left">
 
-    <div class="poster">
-        <img src="{{ movie.poster.url }}">
-    </div>
-     <div class="trailer-section">
-    <h3>Trailer</h3>
-    <select id="languageSelect">
-      <option value="telugu">Telugu</option>
-      <option value="Hindi">Hindi</option>
-      <option value="Tamil">Tamil</option>
-      <option value="Korean">Korean</option>
-    </select>
+<!-- LEFT SIDE -->
 
-    <br><br>
+<div class="left">
 
-    <button 
-  class="watch-btn"
-  data-trailer="{{ movie.trailer_url }}"
-  onclick="openTrailer(this)">
-  ▶ Watch Trailer
+<div class="poster">
+<img src="{{ movie.poster.url }}">
+</div>
+
+<div class="trailer-section">
+
+<h3>Trailer</h3>
+
+<select id="languageSelect">
+<option>Telugu</option>
+<option>Hindi</option>
+<option>Tamil</option>
+<option>Korean</option>
+</select>
+
+<br><br>
+
+<button 
+class="watch-btn"
+data-trailer="{{ movie.trailer_url }}"
+onclick="openTrailer(this)">
+▶ Watch Trailer
 </button>
 
-    
-
-    <div class="cast-section">
-  <h3>Cast</h3>
-  <div class="cast-grid">
-    {% for member in cast %}
-      <div class="cast-card">
-        <img src="{{ member.image.url }}" alt="{{ member.name }}">
-        <p>{{ member.name }}</p>
-        <small>{{ member.role }}</small>
-      </div>
-    {% endfor %}
-  </div>
-</div>
-</div>
-</div>
-<div class="right">
-    
-    <div class="details">
-        <h1>{{ movie.title }}</h1>
-        <p><b>Language:</b> {{ movie.language }}</p>
-        <p><b>Duration:</b> {{ movie.duration }} mins</p>
-
-        <p><b>Synopsis</b></p>
-        <div id="actorPopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8);
-     justify-content:center; align-items:center; z-index:9999;">
-
-  <div style="background:#111; padding:20px; border-radius:12px; width:300px; text-align:center;">
-
-    <img id="popupImg" style="width:150px;height:150px;border-radius:50%;object-fit:cover;">
-
-    <h3 id="popupName" style="color:white; margin-top:10px;"></h3>
-    <p id="popupInfo" style="color:#ccc;"></p>
-
-    <button onclick="closePopup()" style="margin-top:10px;padding:8px 15px;">Close</button>
-
-  </div>
 </div>
 
+<!-- AVAILABLE SHOWS MOVED HERE -->
 
-        <div class="desc">
-            {{ movie.description }}
-        </div>
+<div class="shows">
 
-        
+<h3>Available Shows</h3>
 
-
-
-
-        
-
-        
-
-        
-    </div>
-
-</div>
-
-<h2 style="margin-top:30px;">Available Shows</h2>
-
-
-  <a href="{% url 'funky' movie.id %}">
-    <button class="book-btn">Book Now</button>
+<a href="{% url 'funky' movie.id %}">
+<button class="book-btn">Book Now</button>
 </a>
 
+</div>
 
 </div>
-<script src="{% static 'js/cast.js' %}"></script>
-</body>
 
+<!-- RIGHT SIDE -->
+
+<div class="right">
+
+<div class="details">
+
+<h1>{{ movie.title }}</h1>
+
+<p><b>Language:</b> {{ movie.language }}</p>
+<p><b>Duration:</b> {{ movie.duration }} mins</p>
+
+<p><b>Synopsis</b></p>
+
+<div class="desc">
+{{ movie.description }}
+</div>
+
+</div>
+
+<!-- CAST -->
+
+<div class="cast-section">
+
+<h3>Cast</h3>
+
+<div class="cast-grid">
+
+{% for member in cast %}
+
+<div class="cast-card">
+
+<img src="{{ member.image.url }}">
+
+<div class="cast-info">
+<p>{{ member.name }}</p>
+<small>{{ member.role }}</small>
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="{% static 'js/cast.js' %}"></script>
+
+</body>
 </html>
