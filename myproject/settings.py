@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-%oj_dyx-$g-*o5r*_mkl*25ccy6lexoyg9ez#tz*b-5m--yx*@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://crazymovies-b48o.onrender.com']
 
 
 # Application definition
