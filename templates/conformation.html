@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Booking Confirmed</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking Confirmed</title>
 <style>
 body{
 font-family:Arial;
@@ -33,6 +33,28 @@ background:red;
 color:white;
 text-decoration:none;
 border-radius:5px;
+}
+/* Tablet */
+@media (max-width:768px){
+.container{
+   width:95%;
+}
+
+.seats{
+   grid-template-columns:repeat(8,1fr);
+}
+}
+
+/* Mobile */
+@media (max-width:480px){
+.seats{
+   grid-template-columns:repeat(6,1fr);
+}
+
+button{
+   padding:10px;
+   font-size:14px;
+}
 }
 </style>
 

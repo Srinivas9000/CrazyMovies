@@ -109,6 +109,28 @@ body{
   font-size:10px;
   color:#333;
 }
+/* Tablet */
+@media (max-width:768px){
+.container{
+   width:95%;
+}
+
+.seats{
+   grid-template-columns:repeat(8,1fr);
+}
+}
+
+/* Mobile */
+@media (max-width:480px){
+.seats{
+   grid-template-columns:repeat(6,1fr);
+}
+
+button{
+   padding:10px;
+   font-size:14px;
+}
+}
 
 </style>
 </head>

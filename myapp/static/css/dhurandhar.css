@@ -225,3 +225,25 @@ body {
 .trailer-section select {
   margin-left: 25px;   /* 15px / 20px / 30px try cheyyi */
 }
+/* Tablet */
+@media (max-width:768px){
+.container{
+   width:95%;
+}
+
+.seats{
+   grid-template-columns:repeat(8,1fr);
+}
+}
+
+/* Mobile */
+@media (max-width:480px){
+.seats{
+   grid-template-columns:repeat(6,1fr);
+}
+
+button{
+   padding:10px;
+   font-size:14px;
+}
+}

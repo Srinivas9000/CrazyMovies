@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ movie.title }}</title>
     <style>
         body {
@@ -126,6 +127,28 @@
         .book-btn:hover{
             background:#b40710;
         }
+        /* Tablet */
+@media (max-width:768px){
+.container{
+   width:95%;
+}
+
+.seats{
+   grid-template-columns:repeat(8,1fr);
+}
+}
+
+/* Mobile */
+@media (max-width:480px){
+.seats{
+   grid-template-columns:repeat(6,1fr);
+}
+
+button{
+   padding:10px;
+   font-size:14px;
+}
+}
     </style>
 </head>
 <body>
