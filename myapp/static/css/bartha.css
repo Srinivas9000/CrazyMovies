@@ -63,9 +63,8 @@ body {
 }
 
 .interested-btn:hover {
-  background-color:purple;
-   transition: transform 0.4s, box-shadow 0.2s;
-  cursor: pointer;
+  background-color: purple;
+  transition: 0.3s;
 }
 
 .selectors {
@@ -94,12 +93,32 @@ body {
   font-size: 16px;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 .book-btn:hover {
   background-color: #c40811;
 }
+
+/* NEW BOOK BUTTON BELOW DETAILS */
+.available-show{
+  margin-top:20px;
+}
+
+.available-show button{
+  padding:12px 25px;
+  background:red;
+  border:none;
+  color:white;
+  font-size:16px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.available-show button:hover{
+  background:darkred;
+}
+
+/* Trailer */
 .trailer-section {
   margin-top: 0px;
   margin-left: 20px;
@@ -113,7 +132,7 @@ body {
   color: #fe0404;
 }
 
-
+/* Cast Section */
 .cast-section {
   margin-top: 20px;
   margin-left: 30px;
@@ -124,17 +143,25 @@ body {
   margin-bottom: 20px;
 }
 
+/* CHANGE: Single row cast */
 .cast-grid {
   display: flex;
   gap: 15px;
-  flex-wrap: wrap;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.cast-grid::-webkit-scrollbar{
+  display:none;
 }
 
 .cast-card {
-  width: 90px;
+  min-width: 90px;
   text-align: center;
   color: white;
   font-size: 14px;
+  transition: transform 0.4s;
+  cursor: pointer;
 }
 
 .cast-card img {
@@ -144,7 +171,11 @@ body {
   border-radius: 8px;
 }
 
+.cast-card:hover {
+  transform: scale(1.2);
+}
 
+/* Actor Popup */
 .actor-popup {
   position: fixed;
   top: 0;
@@ -165,6 +196,7 @@ body {
   text-align: center;
   width: 300px;
   color: white;
+  animation: zoomIn 0.3s ease;
 }
 
 .popup-content img {
@@ -182,10 +214,6 @@ body {
   cursor: pointer;
 }
 
-.popup-content {
-  animation: zoomIn 0.3s ease;
-}
-
 @keyframes zoomIn {
   from {
     transform: scale(0.6);
@@ -196,17 +224,6 @@ body {
     opacity: 1;
   }
 }
-
-.cast-card {
-  transition: transform 0.4s, box-shadow 0.2s;
-  cursor: pointer;
-}
-
-.cast-card:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 0px rgb(245, 243, 243);
-}
-
 
 .watch-btn{
   background:red;
@@ -223,27 +240,37 @@ body {
 }
 
 .trailer-section select {
-  margin-left: 25px;   /* 15px / 20px / 30px try cheyyi */
-}
-/* Tablet */
-@media (max-width:768px){
-.container{
-   width:95%;
+  margin-left: 25px;
 }
 
-.seats{
-   grid-template-columns:repeat(8,1fr);
+/* Tablet */
+@media (max-width:768px){
+
+.movie-container{
+  flex-direction:column;
 }
+
+.poster img{
+  margin-top:0;
+}
+
 }
 
 /* Mobile */
 @media (max-width:480px){
-.seats{
-   grid-template-columns:repeat(6,1fr);
+
+.cast-card{
+  min-width:80px;
+}
+
+.cast-card img{
+  width:80px;
+  height:90px;
 }
 
 button{
-   padding:10px;
-   font-size:14px;
+  padding:10px;
+  font-size:14px;
 }
+
 }

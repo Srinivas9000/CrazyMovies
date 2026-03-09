@@ -21,58 +21,37 @@ nav a {
   z-index: 2;
 }
 
-.movie-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.movie-list{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   padding: 20px;
 }
 
-
-.movie-card {
-  background: white;
-  border-radius: 8px;
-  margin: 15px;
-  width: 220px;
-  box-shadow: 0 2px 8px rgb(252, 251, 251);
+.movie-card{
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   text-align: center;
-  padding-bottom: 15px;
-}
-
-
-.movie-card img {
-    width: 100%;
-    height: 320px;          /* same height for all posters */
-    object-fit: contain;   /* no crop */
-    background-color: #cb0f0f;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-}
-
-.movie-card img:hover {
-  transform:scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  cursor:crosshair;
-}
-
-.movie-card h2 {
-  font-size: 18px;
-  margin: 10px 0;
-}
-
-.movie-card button {
-  background-color: green;
-  color: white;
-  border: none;
   padding: 10px;
-  cursor: pointer;
-  border-radius: 4px;
 }
 
-.movie-card button:hover {
-  background-color: #c40811;
+.movie-card img{
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
+.movie-card h3{
+  margin-top: 10px;
+}
+
+.movie-card p{
+  font-size: 14px;
+  color: #555;
+}
 footer {
   text-align: center;
   padding: 15px;
@@ -249,25 +228,26 @@ header{
     object-fit:contain !important;
     background:black !important;
 }
-/* Tablet */
 @media (max-width:768px){
-.container{
-   width:95%;
+  .movie-list{
+    grid-template-columns: repeat(2,1fr);
+  }
 }
 
-.seats{
-   grid-template-columns:repeat(8,1fr);
-}
-}
-
-/* Mobile */
 @media (max-width:480px){
-.seats{
-   grid-template-columns:repeat(6,1fr);
-}
+  .movie-list{
+    grid-template-columns: repeat(3,1fr);
+  }
 
-button{
-   padding:10px;
-   font-size:14px;
-}
+  .movie-card img{
+    height:120px;
+  }
+
+  .movie-card h3{
+    font-size:12px;
+  }
+
+  .movie-card p{
+    font-size:10px;
+  }
 }
